@@ -1,0 +1,480 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\coursename}{Математический анализ 1 к. 2 с.}
+\newcommand{\compiledby}{А. Трошин, ai-troshin@yandex.ru}
+\newcommand{\coursedate}{Весна 2018 г.}
+\input{../classes_style.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\section{Семинар №6}
+
+\subsection{(к теме ''формула Тейлора'')}
+
+\underline{Задача} \textsection{4} 71(2).
+
+Разложение \; \parbox[t]{0.95\linewidth}{$f(x,y)$\; по формуле Тейлора в окрестности \;$M(0,0)$\; до \;$\lito(\rho^2)$\;, где \;$\rho$ = $\sqrt{x^2+y^2}$ :
+
+\; $f(x,y)$ = $\ds \arctg\frac{1+x}{1+y}$}
+
+Общий вид разложения:
+$f(x,y)$ = $f(0,0)$ + $df(0,0)$ + $\frac{1}{2}d^2f(0,0)$ + $\lito(\rho^2)$, где\; $dx = x$,\; $dy=y$
+
+\underline{Путь 1:}\; \parbox[t]{0.95\linewidth}{ $df = f'_xdx$, \; $d^2f = f''_{xx}dx^2 + 2f''_{xy}dxdy + f''_{yy}dy^2$;
+
+\smallskip
+
+$\ds f'_x = \frac{1}{1 + \big(\frac{1+x}{1+y}\big)^2} \cdot \frac{1}{1+y}\big|_{\; \cdot (1+y)^2}^{\; \cdot (1+y)^2} = \frac{1+y}{(1+y)^2 + (1+x)^2}$;
+
+\smallskip
+ 
+$\ds f'_y = \frac{1}{1 + \big(\frac{1+x}{1+y}\big)^2} \cdot \frac{-(1+x)}{(1+y)^2} = \frac{-(1+x)}{(1+x)^2+(1+x)^2}$;
+
+\smallskip
+
+$\ds f''_{xx} = (1+y) \cdot \frac{-2(1+x)}{((1+y)^2+(1+x)^2)^2}$;
+
+\smallskip
+\smallskip
+
+$\ds f''_{xy} = \frac{(1+y)^2+(1+y)^2 + (1+y) \cdot 2(1+y)}{((1+y)^2+(1+x)^2)^2}$;
+
+\smallskip
+
+$\ds f''_{yy} = \frac{1+x}{((1+y)^2+(1+x)^2)^2} \cdot 2(1+y)$;}
+
+В т. $M(0,0)$: \; $ \ds f'_x = \frac{1}{2}, \; f'_y = -\frac{1}{2}, \; f''_{xx} = 0, \; f''_{yy} = \frac{1}{2}; \; f(0,0) = \arctg1 = \frac{\pi}{4}$
+
+С учётом того, что \;$dx=x$, \; $dy=y$, \; $\ds f(x,y) = \frac{\pi}{4} + \frac{x}{2} - \frac{y}{2} - \frac{x^2}{4} + \frac{y^2}{4} + \lito(\rho^2)$ \; при \; $(x,y)\to (0,0)$.
+
+\underline{Путь 2:} \; $f = \arctg u(x,y), \; \ds u(x,y)=\frac{1+x}{1+y}$
+
+$\ds df = \frac{1}{1+u^2}\underbrace{\;du\;}_{\substack {u'_xdx+\\+u'_ydy}}, \; d^2f = \frac{-2u}{(1+u^2)^2}(du)^2 + \!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\! \overbrace{\frac{d^2}{1+u^2}}^{d(du)=(du)'_xdx + (du)'_ydy}$ \!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!, где \;
+ $\begin{cases}
+   \ds du = \frac{dx}{1+y} - \frac{1+x}{(1+y)^2}dy,   
+   \\
+   d^2u = -\frac{2dxdy}{(1+y)^2} + \frac{2(1+x)dy^2}{(1+y)^3}.
+ \end{cases}$
+ 
+ $u(0,0) = 1, \; du(0,0) = dx - dy, d^2u(0,0) = -2dxdy + 2dy^2$.
+ 
+ В итоге, $ \ds f = \frac{\pi}{4} + \frac{x}{2} - \frac{y}{2} - \frac{x^2}{4} + \frac{y^2}{4} + \lito(\rho^2)$ при $(x,y) \to (0,0)$.
+ 
+\bigskip
+
+\bigskip
+
+\underline{Задача} \; (МФТИ 2014-2015, вар.51).
+
+Найти $df(x,y), \; d^2f(x,y)$. \; Представить формулой Тейлора $f(x,y)$ в окрестности $M(1,1)$ \\ до \; $\lito(\rho^2)$, \; где \; $\rho = \sqrt{(x-1)^2+(y-1)^2}$.
+\begin{center}
+$f(x,y)=\ln{\sqrt{x+xy-y}} \; \; \bigg(\!= \frac{1}{2}\ln{\sqrt{x+xy-y}}\bigg)$.
+\end{center}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{p{8cm} c p{8cm}}
+    $\ds f = \frac{1}{2}\ln{u(x,y)}, \; u(x,y) = x + xy - y$
+
+$\ds f = \frac{1}{2}\frac{\overbrace{du}^{u'_xdx+u'_ydy}}{u} = \frac{1}{2}\frac{(1+y)dx+(x-1)dy}{x+xy-y}$ & \hfill & либо $df=f'_xdx+f'_ydy$
+
+\smallskip
+
+$d^2f=f''_{xx}dx^2+2f''_{xy}dxdy+f''_{yy}dy^2$
+  \end{tabular}
+\end{table}
+
+$\ds d^2f = -\frac{1}{2}\frac{(du^2)}{u^2} + \frac{1}{2}\frac{d^2u}{u} = -\frac{1}{2}\frac{(1+y)^2dx^2+2(1+y)(x-1)dxdy+(x-1)^2dy^2}{(x+xy-y)^2} + \frac{2dxdy}{2(x+xy-y)}$
+
+\smallskip
+
+\smallskip
+
+формула Тейлора: \; $ f(x,y)=\underbrace{f(1,1)}_{\ln1=0} + \underbrace{df(1,1)}{dx} + \!\!\!\!\!\!\!\! \underbrace{\frac{1}{2}d^2f(1,1)}_{\frac{1}{2}(4dx^2 \cdot (-\frac{1}{2})+dxdy)} \!\!\!\!\!\!\!\! + \; \lito(\rho^2)$, \; где \; $dx = x-1, \; dy = y-1$,
+
+то есть, \; $f(x,y) = (x-1) -(x-1)^2 + \frac{1}{2}(x-1)(y-1) + \lito(\rho^2)$ \; при \; $(x,y) \to (0,0)$.
+
+\begin{center}
+\subsection{\underline{Исследование дифференцируемости функции в точке}}
+\end{center}
+
+\bigskip
+
+,, Дана $f(x,y)$. Дифференцируема ли она в точке $(x_0,y_0)$? ''
+
+\underline{Шаг 1} Проверяем, \; \parbox[t]{0.95\linewidth}{$\exists$ ли $A = f'_x(x_0,y_0)$ и $B = f'_y(x_0,y_0)$.
+
+Если $\exists \; L = 0$, \; то \; $f(x_0,y_0)$ \; дифф. в т. $(x_0,y_0)$, \; иначе недифф.}
+
+\smallskip
+
+\underline{Доп. шаг (необязательный)}: Проверяем непрерывность: если \; $\ds \exists \lim_{\substack{x \to x_0 \\ y \to y_0}} f(x,y) = f(x_0,y_0)$,
+
+то исследуем дальше. Если нет, то \; $f(x,y)$ \; недифф.
+
+\smallskip
+
+\underline{Шаг 2} \; \parbox[t]{0.95\linewidth}{Исследуем  $\ds L = \lim_{\substack{x \to \Delta x_0 \\ y \to \Delta y_0}} \frac{f(x_0+\Delta x, y_0 + \Delta y) - f(x_0,y_0) - A\Delta x - B\Delta y}{\sqrt{\Delta x^2 + \Delta y^2}}$.
+
+\smallskip
+
+Если $\exists L = 0$, то $f(x,y)$ дифф. в т. $(x_0,y_0)$, иначе недифф.}
+
+\bigskip
+
+\Examples
+
+1)\; Исследовать \; $\ds f(x,y) = |y|^\frac{3}{5} \arcsin\sqrt{|x|}. \quad f'_x(0,0) = \frac{d\overbrace{f(x,0)}^{\equiv 0}}{dx}\bigg|_{x=0} = 0, \quad f'_y(0,0) = \frac{d\overbrace{f(0,y)}^{\equiv 0}}{dy}\bigg|_{y=0} = 0$.
+
+Рассмотрим \; $\ds F(\Delta x,\Delta y) = \frac{f(\Delta x, \Delta y) - \overbrace{f(0,0)}^0 - \overbrace{f'_x(0,0)}^0\Delta x - \overbrace{f'_y(0,0)}^0\Delta y}{\sqrt{\Delta x^2 + \Delta y^2}} = \frac{f(\Delta x,\Delta y)}{\sqrt{\Delta x^2 + \Delta y^2}}$:
+
+\smallskip
+
+$\ds |F(\rho\cos\varphi,\rho\sin\varphi)| = \frac{\rho^{\frac{3}{5}} |\sin\varphi|^{\frac{3}{5}}\overbrace{|\arcsin\sqrt{\rho|\cos\varphi|}|}^{\leqslant 2\sqrt{\rho|\cos\varphi|}} }{\rho} \leqslant \rho^{\frac{3}{5} + \frac{1}{2} - 1}\underbrace{|\sin\varphi|^{\frac{3}{5}}\cdot|\cos\varphi|}_{\in\; [0,1]}\cdot2 \leqslant 2\rho^{\frac{1}{10}} \xrightarrow[\rho \to +0]{} 0$.
+
+Следовательно, $f(x,y)$ дифф. в т. $(0,0)$. 
+
+\bigskip
+
+2) \; $\textsection{3}$ 19(4). $\qquad$ Доказать: \; $f(x,y) = \ch\sqrt[5]{x^2y}$ \;  дифференцируема в $(0,0)$.
+
+$\ds f'_x(0,0) = \frac{d\overbrace{f(x,0)}^{\equiv 1}}{dx}\bigg|_{x=0} = 0,\quad f'_y(0,0) = \frac{d\overbrace{f(0,y)}^{\equiv 1}}{dy}\bigg|_{y=0} = 0 $
+
+\smallskip
+
+Рассмотрим $\ds F(\Delta x, \Delta y) = \frac{f(\Delta x, \Delta y) - \overbrace{f(0,0)}^1 - \overbrace{f'_x(0,0)}^0 \Delta x - \overbrace{f'_y(0,0)}^0 \Delta y}{\sqrt{\Delta x^2 + \Delta y^2}} = \\ = \Bigg[\text{обозн}.\; \rho(\Delta x, \Delta y)  = \sqrt{\Delta x^2 + \Delta y^2}\Bigg] = \frac{1}{\rho}\left(\ch\sqrt[5]{x^2y}-1\right) = \frac{1}{\rho}\left(\frac{1}{2}(x^2y)^{\frac{2}{5}}\right) + \!\!\!\!\underbrace{\lito\left(\left(x^2y\right)^{\frac{3}{5}}\right)}_{|x|,|y|\; \leqslant \; \rho \; \Rightarrow \; \lito\left(\rho^{\frac{9}{5}}\right)} = \\ = \underbrace{\frac{1}{2} \cdot \left(\frac{x}{\rho}\right)^{\frac{4}{5}} \cdot  \left(\frac{y}{\rho}\right)^{\frac{2}{5}}}_{\text{огр.} (\Delta x,\Delta y)} \cdot \underbrace{\rho^{\frac{1}{5}}}_{\substack{\text{{б.м. при }} \\ (\Delta x, \Delta y) \\ \to (0,0) }} + \; \lito\left(\rho^{\frac{4}{5}}\right) \xrightarrow[\substack{\Delta x \to 0 \\  \Delta y \to 0}]{} 0 $.
+
+Следовательно, \; $f(x,y)$ \; дифф. в т. $(0,0)$.
+
+\bigskip
+
+3) \textsection{3} 20(3). $\qquad$ Доказать: \; $f(x,y) = \sqrt[3]{x^3+y^3}$ \; недифф. в $(0,0)$.
+
+\smallskip
+
+$\ds f'_x(0,0) = \frac{df(x,0)}{dx}\bigg|_{x=0} = \frac{dx}{dx} = 1; \quad f'_y(0,0) = \frac{df(0,y)}{dy}\bigg|_{y=0} = \frac{dy}{dy} = 1;$
+
+Рассмотрим $\ds F(\Delta x, \Delta y) = \frac{f(\Delta x, \Delta y) - \overbrace{f(0,0)}^0 - \overbrace{f'_x(0,0)}^0 \Delta x - \overbrace{f'_y(0,0)}^1 \Delta y}{\sqrt{\Delta x^2 + \Delta y^2}}$.
+
+предел по направлению:
+
+$\ds \lim_{\rho \to +0}{F\left(\rho\cos\varphi,\rho\sin\varphi\right)} = \lim_{\rho \to +0}{\frac{1}{\rho}\left(\rho\sqrt[3]{\cos^{3}\varphi + \sin^{3}\varphi} - \rho\cos\varphi - \rho\sin\varphi\right)} = \\ =\sqrt[3]{\cos^3\varphi + \sin^3\varphi} - \cos\varphi - \sin\varphi$. \qquad \qquad Если \; \parbox[t]{0.95\linewidth}{
+$\varphi = 0,				\;\;		\>		\mbox{то предел} = 0 \\
+ \varphi = \frac{\pi}{4},\;	\>		\mbox{то предел} = 2^{-\frac{1}{6}} - 2^{\frac{1}{2}} \neq 0$}
+
+Следовательно, \; $f(x,y)$ \; недифф в $(0,0)$.
+
+\bigskip
+
+4) \textsection{3} 20(5). $\qquad$ Доказать: \; $\ds f(x,y) = \sin\left(\frac{\pi}{4} + \sqrt[3]{x^2y}\right)$ \; недифф. в $(0,0)$.
+
+\smallskip
+
+$\ds f'_x(0,0) = \frac{d\overbrace{f(x,0)}^{\sin\frac{x}{4}}}{dx}\bigg|_{x=0} = 0, \quad f'_y(0,0) = \frac{d\overbrace{f(0,y)}^{\sin\frac{x}{4}}}{dy}\bigg|_{y=0} = 0$.
+
+Рассмотрим \; $\ds F(\Delta x,\Delta y) = \frac{\overbrace{f(\Delta x,\Delta y)}^{\sin\left(\frac{\pi}{4} + \sqrt[3]{\Delta x\Delta y^2}\right)} \!\!\!\! - \overbrace{f(0,0)}^{\sin\frac{\pi}{4}} -\overbrace{f'_x(0,0)}^0\Delta x - \overbrace{f'_y(0,0)}^0\Delta y}{\sqrt{\Delta x^2 + \Delta y^2}} = \\ = \frac{\sin\frac{\pi}{4}\cos\sqrt[3]{\Delta x\Delta y^2} + \cos\frac{\pi}{4}\sin\sqrt[3]{\Delta x\Delta y^2} - \sin\frac{\pi}{4}}{\sqrt{\Delta x^2 + \Delta y^2}} = \frac{1}{\sqrt2\cdot\sqrt{\Delta x^2 + \Delta y^2}}\left(\cos\sqrt[3]{\Delta x\Delta y^2} + \sin\sqrt[3]{\Delta x\Delta y^2} - 1\right)$.
+
+\smallskip
+
+$\ds \underbrace{\,\lim_{\substack{\Delta x=0 \\ \Delta y=0}}\,}_{\text{предел по мн-ву}}\!\!\!\!\!\!\!\!\!{F(\Delta x,\Delta y)} = 0; \quad \underbrace{\,\lim_{\substack{\Delta x=0 \\ \Delta y=0}}\,}_{\text{предел по мн-ву}}\!\!\!\!\!\!\!\!\!{F(\Delta x,\Delta y)} = \lim_{\Delta x\to0}{\frac{\cos\Delta x + \sin\Delta x -1}{2|\Delta x|}} = \lim_{\Delta x\to0}{sign\Delta x} \; \nexists$.
+
+Следовательно, \; $f(x,y)$ \; недифф в $(0,0)$.
+
+\bigskip
+
+5) (МФТИ 2016-2017, вар. 71)
+
+\smallskip
+
+Исследовать на дифференцируемость в т. $\ds (0,0) \qquad \text{w} = \begin{cases}
+  \frac{x^{\frac{9}{5}} + y^{\frac{9}{5}}}{(x^4 + y^4 - \frac{x^2y^2}{4})^{\frac{1}{6}}}  &, x^2+y^2\neq0,   \\
+  0 &, x^2+y^2=0.
+\end{cases}$
+
+$\ds \text{w}'_x(0,0) = \lim_{\Delta x \to 0}{\frac{\text{w}(\Delta x,0) - \text{w}(0,0)}{\Delta x}} = \lim_{\Delta x \to 0}{\Delta x^{\underbrace{\frac{9}{5}-\frac{4}{6}-1}_{\textgreater0}}} = 0$.
+
+В силу симметрии \; $x\leftrightarrow y \quad \text{w}'_y(0,0)=0$.
+
+Рассмотрим $\ds F(\Delta x,\Delta y) = \frac{\text{w}(\Delta x,\Delta y) - \overbrace{\text{w}(0,0)}^0 - \overbrace{\text{w}'_x(0,0)}^0\Delta x - \overbrace{\text{w}'_y(0,0)}^0\Delta y}{\sqrt{\Delta x^2 + \Delta y^2}}$:
+
+(равномерная оценка)
+
+$\ds \left|F(\rho\cos\varphi,\rho\sin\varphi)\right| = \frac{\rho^{\frac{9}{5}}\overbrace{\left|\left(\cos\varphi\right)^{\frac{9}{5}}\left(\sin\varphi\right)^{\frac{9}{5}}\right|}^{\in \; [0,2]}}{\rho\cdot\rho^{\frac{4}{6}}\left(\underbrace{\cos^4\varphi+\sin^4\varphi}_{\left(c^2+s^2\right)^2-c^2s^2} - \frac{1}{4}\cos^2\varphi\sin^2\varphi\right)^{\frac{1}{6}}}   \frac{2\rho^{\frac{2}{15}}}{\left(1 -\frac{9}{4}\underbrace{\cos^2\varphi\sin^2\varphi}_{\frac{1}{4}\sin^22\varphi}\right)^{\frac{1}{6}}} \leqslant \frac{2\rho^{\frac{2}{15}}}{\left(\frac{7}{16}\right)^{\frac{1}{6}}} \xrightarrow[\rho \to +0]{} 0$.
+
+Следовательно, \; w \; дифф в $(0,0)$.
+
+\bigskip
+
+6) (МФТИ 2011-2012, вар. 21)
+
+Исследовать на дифференцируемость в т. $\ds (0,0) \qquad f(x,y) = \begin{cases}
+  \tg\left(\frac{xy^3}{x^2+y^4}\right)  &, x^2+y^2\neq0,   \\
+  0 &, x^2+y^2=0.
+\end{cases}$
+
+$\ds f'_x = \frac{d\overbrace{f(x,0)}^0}{dx}\bigg|_{x=0} = 0, \qquad f'_y = \frac{d\overbrace{f(0,y)}^0}{dy}\bigg|_{y=0} = 0$
+
+Рассмотрим $\ds F(\Delta x,\Delta y) = \frac{f(\Delta x,\Delta y) - \overbrace{f(0,0)}^0 - \overbrace{f'_x(0,0)}^0\Delta x - \overbrace{f'_y(0,0)}^0\Delta y}{\sqrt{\Delta x^2 + \Delta y^2}} = \frac{\tg\left(\frac{\Delta x\Delta y^3}{\Delta x^2+\Delta y^4}\right)}{\sqrt{\Delta x^2 + \Delta y^2}}$.
+
+\hrulefill
+
+Идея: \; $\ds \left|\Delta x\Delta y^2\right| \leqslant \frac{\Delta x^2+\Delta y^4}{2} \Rightarrow \left|\tg\left(\frac{\Delta x\Delta y^2}{\Delta x^2 + \Delta y^4}\cdot\Delta y\right)\right| \!\!\!\!\!\!\! \stackrel{\text{в нек.} \; O(0,0)}{\stackrel{\downarrow}{\leqslant}} \!\!\!\!\! 2\Bigg|\underbrace{\frac{\Delta x\Delta y^2}{\Delta x^2 + \Delta y^4}}_{\in\;\left[-\frac12,\frac12\right]}\Delta y\Bigg| \leqslant |\Delta y| = O(\rho)$,
+
+следовательно, \; $\ds \left|F(\Delta x,\Delta y)\right| = \frac{\left|\tg(\,\dots)\right|}\rho = O(1)$ \; --- \; возможно, не имеет предела в \;$(0,0)$.
+
+\hrulefill
+
+По направлениям:
+
+$\ds \lim_{\rho\to+0}{F(\rho\cos\varphi,\rho\sin\varphi)} = \lim_{\rho\to+0}{\left[\frac1\rho\tg\stackrel{\text{б.м. при} \; \rho\to0 \; \text{незав. от} \; \cos\varphi}{\boxed{{\frac{\rho^{\cancel{4}2}\cos\varphi\sin^3\varphi}{\cancel{\rho^2}\cos^2\varphi + \rho^{\cancel{4}2}\sin^4\varphi}}}}\right]}  = \lim_{\rho\to+0}{\left[\rho\stackrel{\substack{\text{если} \; \cos^2\varphi\neq0, \; \text{то это --- огр. ф-ция} \; \rho \\
+\text{если} \; \cos\varphi = 0, \; \text{то это} \; \equiv 0} }{\boxed{{\frac{\cos\varphi\sin^3\varphi}{\cos^2\varphi + \rho^4\sin^4\varphi}}}}\right]} = \\ = 0 \;\; (\forall\varphi\in[0,2\pi))$
+
+Но всё-таки:
+
+$\ds F(\Delta y^2,\Delta y) = \frac1{\sqrt{\Delta^4 + \Delta y^2}} = \tg\left(\frac{\Delta y^5}{2\Delta y^4}\right) = \frac1{|\Delta y|}\cdot\frac1{\sqrt{\Delta y^2 +1}}\cdot\left(\frac{\Delta y}2 + \lito(\Delta y)\right) \xrightarrow[\Delta y \to +0]{} \frac12 \neq 0 $.
+
+Следовательно, \; $\ds \nexists \lim_{\substack{\Delta x\to0 \\ \Delta y\to 0}}{F(\Delta x,\Delta y)} \Rightarrow f(x,y)$ \; недифф. в \; $(0,0)$.
+
+\newpage
+
+\begin{center}
+\subsection{\underline{Мера Жордана.}}
+\end{center}
+
+\Def
+
+
+
+
+
+
+
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+
+\Th{Правило Лопиталя}
+
+
+\Examples
+
+1) $\ds \lim_{x \to +\infty} \frac{e^x}{x} = \lim_{x \to +\infty} \frac{e^x}{1} = +\infty$\footnote{Для сокращения записи применяем правило Лопиталя формально, и если предел отношения производных будет существовать, то цепочка равенств окажется верной.}.
+
+2) $\ds \lim_{x \to +\infty} \frac{e^x}{x^4} = \lim_{x \to +\infty} \frac{e^x}{4 x^3} = \lim_{x \to +\infty} \frac{e^x}{12 x^2} = \lim_{x \to +\infty} \frac{e^x}{24 x} = \lim_{x \to +\infty} \frac{e^x}{24} = +\infty$.
+
+3) $\ds \lim_{x \to +\infty} \frac{e^x}{x^{3/2}} = \lim_{x \to +\infty} \frac{e^x}{\frac32 x^{1/2}} = \lim_{x \to +\infty} \frac{e^x x^{1/2}}{\frac32 \cdot \frac12} = +\infty$.
+
+\Note Таким же образом можно показать, что в общем случае $\ds \lim_{x \to \infty} \frac{c^x}{x^\alpha} = +\infty$ при $c > 1$, $\alpha \in \R$, т.~е. что $x^\alpha = \lito(c^x)$ при $x \to +\infty$.
+
+4) $\ds \lim_{x \to +\infty} \frac{\ln x}{x} = \lim_{x \to +\infty} \frac{1/x}{1} = 0$.
+
+5) Пусть $\alpha > 0$. $\ds \lim_{x \to +\infty} \frac{\ln x}{x^\alpha} = \lim_{x \to +\infty} \frac{1/x}{\alpha x^{\alpha - 1}} = \lim_{x \to +\infty} \frac{1}{\alpha x^\alpha} = 0$.
+
+\Note Мы установили, что $\ln x = \lito(x^\alpha)$ при $x \to +\infty$, если $\alpha > 0$.
+
+6) $\ds \lim_{x \to +0} \underbrace{\;x\;}_\text{б.~м.} \underbrace{\ln x}_\text{б.~б.} = \lim_{x \to +0} \frac{\ln x}{1/x} = \lim_{x \to +0} \frac{1/x}{-1/x^2} = \lim_{x \to +0} (-x) = 0$.
+
+\Note В общем случае, $\ds \ln x = \lito\bigg(\frac{1}{x^\alpha}\bigg)$ при $x \to +0$, если $\alpha > 0$.
+
+Установленные отношения между функциями проиллюстрированы на рисунке.
+\bigskip
+
+\begin{figure}[h]
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{plot_exp_vs_pow.pdf}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{plot_sqrt_vs_ln.pdf}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{plot_invx_vs_ln.pdf}
+\end{subfigure}
+  \caption{Отношения между показательной, степенной и логарифмической функциями}
+\end{figure}
+
+\newpage
+
+7) $\ds \lim_{x \to 1-0} \frac{\opn{arccos} x}{\sqrt{1-x}} = \lim_{x \to 1-0} \frac{-\frac{1}{\sqrt{1-x^2}}}{-\frac{1}{2 \sqrt{1-x}}} = \lim_{x \to 1-0} \frac{2 \cancel{\sqrt{1-x}}}{\cancel{\sqrt{1-x}}\sqrt{1+x}} = \frac{2}{\sqrt{1+1}} = \sqrt2$.
+
+\Note Значит, $\opn{arccos} x \sim \sqrt{2 (1-x)}$ при $x \to 1-0$ (см. рис.).
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.38\textwidth]{arccos_appr.png}
+  \end{center}
+  \caption{Приближение $y = \opn{arccos} x$ степенной функцией}
+\end{figure}
+
+8) $\ds \lim_{x \to +\infty} \bigg(\underbrace{\;\sqrt{x}\;}_\text{б.~б.} \underbrace{\opn{arccos}\frac{x}{\sqrt{1+x+x^2}}}_\text{б.~м.}\bigg) = \lim_{x \to +\infty} \frac{\opn{arccos}\frac{x}{\sqrt{1+x+^2}}}{1/\sqrt{x}} = \lim_{x \to +\infty} \Bigg[\frac{-1}{\sqrt{1-\frac{x^2}{1+x+x^2}}} \cdot \frac{\sqrt{1+x+x^2}-\frac{x(1+2x)}{2\sqrt{1+x+x^2}}}{1+x+x^2} \cdot \frac{1}{-1/(2x^{3/2})}\Bigg] = \left|\parbox{14em}{\centering умножим числитель и \\ знаменатель на $\sqrt{1+x+x^2}$}\right| = \lim_{x \to +\infty} \Bigg[\frac{1}{\sqrt{1+x}} \cdot \frac{1+x+\cancel{x^2}-x(1+\cancel{2x})/2}{1+x+x^2} \cdot 2x^{3/2}\Bigg] = \lim_{x \to +\infty} \Bigg[\underbrace{\frac{1}{\sqrt{\frac{1}{x}+1}}}_{\to 1} \cdot \underbrace{\frac{\big(1+\frac{x}{2}\big) \cdot \frac{1}{x}}{(1+x+x^2) \cdot \frac{1}{x^2}}}_{\to 1/2} \cdot \underbrace{\frac{2x^{3/2}}{\sqrt{x} \cdot x}}_{=2}\Bigg] = 1$.
+
+9) $\ds \lim_{x \to 0} (\cos x)^{1/x^2} = \lim_{x \to 0} \exp\bigg(\frac{\ln \cos x}{x^2}\bigg) = \left|\parbox{6em}{\centering обозначим}\right| = L$;
+
+Рассмотрим $\ds \lim_{x \to 0} \frac{\ln \cos x}{x^2} = \lim_{x \to 0} \frac{\frac{1}{\cos x} \cdot (-\sin x)}{2x} = \lim_{x \to 0} \bigg( -\frac12 \cdot \underbrace{\frac{1}{\cos x}}_{\to 1} \cdot \underbrace{\frac{\sin x}{x}}_{\to 1} \bigg) = -\frac12$.
+
+В силу непрерывности $y=e^x$ на $\R$ получаем $L = e^{-1/2}$.
+
+\subsection{Формула Тейлора}
+
+Формула Тейлора дает наиболее точное приближение функции полиномом в окрестности точки.
+
+Возьмем точку $x_0 \in \R$. Пусть $y = f(x)$ определена в некоторой $\U(x_0)$ и пусть $\exists f^{(n)}(x_0) \in \R$.
+
+Представим $f(x) = P_n(x) + r_n(x)$, где
+
+\Def $\ds P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k = f(x_0) + \frac{f'(x_0)}{1!} (x-x_0) + \frac{f''(x_0)}{2!} (x-x_0)^2 + \ldots + \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n$ --- многочлен Тейлора функции $f(x)$ в точке $x_0$,
+
+\Def $r_n(x) = f(x) - P_n(x)$ --- остаточный член $n$-го порядка формулы Тейлора.
+
+\Th{формула Тейлора с остаточным членом в форме Пеано} 
+
+$f(x) = P_n(x) + r_n(x)$, где $r_n(x) = \lito((x-x_0)^n)$ при $x \to x_0$.
+
+\newpage
+
+\Example $f(x) = \ln(1+x)$
+
+$f(0) = 0$
+
+$\ds f^{(n)}(x) = \frac{(-1)^{n-1} (n-1)!}{(1+x)^n} \implies f^{(n)}(0) = (-1)^{n-1} (n-1)!$
+
+$\bigg|\ f'(0) = 1,\ f''(0) = -1,\ f'''(0) = 2,\ f^{IV}(0) = -6, \ldots \ \bigg|$
+
+
+Значит, формула Тейлора для $f(x)$ в точке $x_0 = 0$ будет иметь вид $$\ds \ln(1+x) = \sum_{k=1}^{n} \frac{f^{(k)}(0)}{k!} x^k + \lito(x^n) = \sum_{k=1}^{n} \frac{(-1)^{k-1} \cancel{(k-1)!}}{\cancel{(k-1)!} k} x^k + \lito(x^n) = \sum_{k=1}^{n} \frac{(-1)^{k-1}}{k} x^k + \lito(x^n)$$
+
+Первые несколько приближений при $x \to 0$:
+
+$\ds \ln(1+x) = x + \lito(x)$
+
+$\ds \ln(1+x) = x - \frac{x^2}{2} + \lito(x^2)$
+
+$\ds \ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} + \lito(x^3)$
+
+Точность этих формул можно оценить из рисунка.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.35\textwidth]{Taylor_illustr.png}
+  \end{center}
+  \caption{Сравнение графика $y=\ln(1+x)$ с его приближением полиномами в точке $x_0 = 0$}
+\end{figure}
+
+Представления формулой Маклорена некоторых функций, часть 1
+\hrule
+\begin{align*}
+e^x           & = \sum_{k=0}^{n} \frac{x^k}{k!} + \lito(x^n)                      && = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \ldots + \frac{x^n}{n!} + \lito(x^n) \\
+\sin x        & = \sum_{k=0}^{n} \frac{(-1)^k}{(2k+1)!}x^{2k+1} + \lito(x^{2n+2}) && = x - \frac{x^3}{6} + \frac{x^5}{120} + \ldots + \frac{(-1)^n}{(2n+1)!} x^{2n+1} + \lito(x^{2n+2}) \\
+\cos x        & = \sum_{k=0}^{n} \frac{(-1)^k}{(2k)!}x^{2k} + \lito(x^{2n+1})     && = 1 - \frac{x^2}{2} + \frac{x^4}{24} + \ldots + \frac{(-1)^n}{(2n)!} x^{2n} + \lito(x^{2n+1}) \\
+\opn{sh} x    & = \sum_{k=0}^{n} \frac{x^{2k+1}}{(2k+1)!} + \lito(x^{2n+2})       && = x + \frac{x^3}{6} + \frac{x^5}{120} + \ldots + \frac{x^{2n+1}}{(2n+1)!} + \lito(x^{2n+2}) \\
+\opn{ch} x    & = \sum_{k=0}^{n} \frac{x^{2k}}{(2k)!} + \lito(x^{2n+1})           && = 1 + \frac{x^2}{2} + \frac{x^4}{24} + \ldots + \frac{x^{2n}}{(2n)!} + \lito(x^{2n+1}) \\
+(1+x)^\alpha  & = \sum_{k=0}^{n} C_\alpha^k x^k + \lito(x^n)                      && = 1 + \alpha x + \frac{\alpha (\alpha-1)}{2} x^2 + \frac{\alpha (\alpha-1) (\alpha-2)}{6} x^3 + \ldots + C_\alpha^n x^n + \lito(x^n) \\
+\ln(1+x)      & = \sum_{k=1}^{n} \frac{(-1)^{k-1}}{k} x^k + \lito(x^n)            && = x - \frac{x^2}{2} + \frac{x^3}{3} + \lito(x^3) + \ldots + \frac{(-1)^{n-1}}{n} x^n + \lito(x^n)
+\end{align*}
+При замене $x$ на $-x$ можно получить формулы
+\begin{align*}
+e^{-x}        & = \sum_{k=0}^{n} \frac{(-1)^k x^k}{k!} + \lito(x^n)               && = 1 - x + \frac{x^2}{2} - \frac{x^3}{6} + \ldots + \frac{(-1)^n x^n}{n!} + \lito(x^n)\\
+(1-x)^\alpha  & = \sum_{k=0}^{n} (-1)^k C_\alpha^k x^k + \lito(x^n)               && = 1 - \alpha x + \frac{\alpha (\alpha-1)}{2} x^2 - \frac{\alpha (\alpha-1) (\alpha-2)}{6} x^3 + \ldots + (-1)^n C_\alpha^n x^n + \lito(x^n) \\
+\ln(1-x)      & = -\sum_{k=1}^{n} \frac{x^k}{k} x^k + \lito(x^n)                  && = -x -\frac{x^2}{2} -\frac{x^3}{3} + \lito(x^3) + \ldots - \frac{x^n}{n} + \lito(x^n)
+\end{align*}
+\hrule
+Так как $\ds C_{-1}^k = \frac{(-1)(-1-1)(-1-2) \ldots (-1-k+1)}{k!} = \frac{(-1)^k \cancel{\cdot 1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}}{\cancel{k!}} = (-1)^k$, то
+\begin{align*}
+\frac{1}{1+x} & = \sum_{k=0}^{n} (-1)^k x^k + \lito(x^n)                          && = 1 - x + x^2 - x^3 + \ldots + (-1)^n x^n + \lito(x^n) \\
+\frac{1}{1-x} & = \sum_{k=0}^{n} x^k + \lito(x^n)                                 && = 1 + x + x^2 + x^3 + \ldots + x^n + \lito(x^n)
+\end{align*}
+\hrule
+
+\Note В формуле Маклорена четной функции $f(x)$ присутствуют только четные степени $x$, а нечетной функции $g(x)$ --- только нечетные:
+$$f(x) = \sum_{k=0}^{n} \frac{f^{(2k)}(0)}{(2k)!}x^{2k} + \lito(x^{2n+1}), \qquad g(x) = \sum_{k=0}^{n} \frac{g^{(2k+1)}(0)}{(2k+1)!}x^{2k+1} + \lito(x^{2n+2})$$
+
+\Note Рассмотрим формулы Маклорена следующих функций:
+$$\frac{1}{\sqrt{1+x}} = (1+x)^{-1/2} = \sum_{k=0}^{n} C_{-1/2}^k x^k + \lito(x^n), \qquad
+\sqrt{1+x} = (1+x)^{1/2} = \sum_{k=0}^{n} C_{1/2}^k x^k + \lito(x^n)$$
+
+Коэффициенты $C_{-1/2}^k$ и $C_{1/2}^k$ можно записать с помощью так называемых двойных факториалов:
+$$C_{-1/2}^k = \frac{(-1/2)(-1/2-1) \ldots (-1/2-k+1)}{k!} = \frac{(-1)^k\cdot \overbrace{1 \cdot 3 \cdot 5 \cdot \ldots \cdot (2k-1)}^{(2k-1)!!}}{2^k k!} = \frac{(-1)^k (2k-1)!!}{2^k k!}, \quad k \in \N$$
+$$C_{1/2}^k = \frac{(1/2)(1/2-1) \ldots (1/2-k+1)}{k!} = \frac{(-1)^{k-1}\cdot 1 \cdot \overbrace{1 \cdot 3 \cdot 5 \cdot \ldots \cdot (2k-3)}^{(2k-3)!!}}{2^k k!} = \frac{(-1)^{k-1} (2k-3)!!}{2^k k!}, \quad k \in \N \setminus \{1\} $$
+
+Напомним: $\forall \alpha \in \R \holds C_\alpha^0 = 1$; по определению $C_{1/2}^{1} = 1/2$.
+
+При желании разложения корней можно записать в виде
+\begin{align*}
+\frac{1}{\sqrt{1+x}} & = \sum_{k=0}^{n} C_{-1/2}^k x^k + \lito(x^n) = 1 + \sum_{k=1}^{n} \frac{(-1)^k (2k-1)!!}{2^k k!} x^k + \lito(x^n) \\
+\frac{1}{\sqrt{1-x}} & = \sum_{k=0}^{n} (-1)^k C_{-1/2}^k x^k + \lito(x^n) = 1 + \sum_{k=1}^{n} \frac{(2k-1)!!}{2^k k!} x^k + \lito(x^n) \\
+\sqrt{1+x}           & = \sum_{k=0}^{n} C_{1/2}^k x^k + \lito(x^n) = 1 + \frac{x}{2} + \sum_{k=2}^{n} \frac{(-1)^{k-1} (2k-3)!!}{2^k k!} x^k + \lito(x^n) \\
+\sqrt{1-x}           & = \sum_{k=0}^{n} (-1)^k C_{1/2}^k x^k + \lito(x^n) = 1 - \frac{x}{2} - \sum_{k=2}^{n} \frac{(2k-3)!!}{2^k k!} x^k + \lito(x^n)
+\end{align*}
+
+Обратите внимание, что при использовании двойных факториалов первые члены сумм надо записать отдельно, чтобы в общей формуле не возникали двойные факториалы отрицательных чисел.
+
+\newpage
+
+\textbf{Примеры на разложение до заданной степени}
+
+1) Разложить по формуле Маклорена до $\lito(x^4)$.
+
+$y = (1-x-x^2-x^3)^2 = (1-x-x^2-x^3)(1-x-x^2-x^3) =1-x-x^2-x^3 - x+x^2+x^3+x^4 -x^2+x^3+x^4+\underbrace{\;x^5\;}_{\lito(x^4)} -x^3+x^4+\underbrace{x^5+x^6}_{\lito(x^4)} = 1 - 2x -x^2 +3x^4 + \lito(x^4)$.
+
+2) Разложить по формуле Маклорена до $\lito(x^5)$.
+\begin{multline*}
+\ds y = \frac{1}{\cos x} = \frac{1}{1-\underbrace{\left(\frac{x^2}{2}-\frac{x^4}{24}+\lito(x^5)\right)}}_{z \to 0} = \left|\parbox{14em}{\centering $\ds \frac{1}{1-z} = 1+z+z^2+z^3+\lito(z^3)$}\right| = 1 + \left(\frac{x^2}{2}-\frac{x^4}{24}+\lito(x^5)\right) + \\ + \underbrace{\left(\frac{x^2}{2}-\frac{x^4}{24}+\lito(x^5)\right)^2}_{\frac{x^4}{4}+\lito(x^5)} + \underbrace{\left(\frac{x^2}{2}-\frac{x^4}{24}+\lito(x^5)\right)^3}_{\frac{x^6}{8}+\lito(x^6)=\lito(x^5)} + \underbrace{\lito\left(\frac{x^2}{2}-\frac{x^4}{24}+\lito(x^5)\right)}_{\lito(x^5)} = 1 + \frac{x^2}{2} + \frac{5}{24}x^4 + \lito(x^5).
+\end{multline*}
+
+3) Разложить по формуле Маклорена до $\lito(x^5)$.
+
+$\ds \opn{tg} x = \frac{\sin x}{\cos x} = \left(x - \frac{x^3}6 + \frac{x^5}{120} + \lito(x^5)\right) \left(1 + \frac{x^2}{2} + \frac{5}{24}x^4 + \lito(x^5)\right) = x + \frac{x^3}{2} + \frac{5}{24}x^5 + \lito(x^5) - \frac{x^3}{6}-\frac{x^5}{12}+\frac{x^5}{120} = x + \frac{x^3}{3} + \frac{2}{15}x^5 + \lito(x^5)$.
+
+4) Разложить по формуле Тейлора в точке $x_0 = 1$ до $\lito((x-1)^3)$.
+
+$\ds x^x = \left|\parbox{8em}{\centering $t=x-1$ \\ $t \to 0$ при $x \to 1$}\right| = (1+t)^{1+t} = e^{(1+t) \ln(1+t)}$;
+
+рассмотрим $\ds g(t) = (1+t) \ln(1+t) = (1+t) \left(t-\frac{t^2}{2}+\frac{t^3}{3}+\lito(t^3)\right) = t-\frac{t^2}{2}+\frac{t^3}{3}+\lito(t^3) + t^2-\frac{t^3}{2} = t+\frac{t^2}{2}-\frac{t^3}{6}+\lito(t^3)$.
+
+Тогда $\ds e^{g(t)} = 1+g(t)+\frac{g^2(t)}{2}+\frac{g^3(t)}{6}+\underbrace{\lito(g^3(t))}_{\lito(t^3)} = 1 + \left(t+\frac{t^2}{2}-\frac{t^3}{6}+\lito(t^3)\right) + \frac12 \left(t^2+t^3\right) + \frac{t^3}{6} = 1+t+t^2+\frac{t^3}{2}+\lito(t^3)=1+(x-1)+(x-1)^2+\frac{(x-1)^3}{2}+\lito((x-1)^3)$ при $x \to 1$.
+
+\textbf{Примеры на разложение до произвольной степени}
+
+1) Разложить по формуле Маклорена до $\lito(x^n)$ функцию $f(x) = \ln(3x+4)$.
+
+$\ds f(x) = \ln 4 + \ln\left(1+\frac{3x}{4}\right) = \ln 4 + \sum_{k=1}^{n} \frac{(-1)^{k-1}}{k} \Big(\frac56\Big)^k x^k + \lito(x^n)$.
+
+2) Разложить по формуле Маклорена до $\lito(x^n)$ функцию $\ds f(x) = \frac{x^2+1}{2x-3}$.
+
+$\ds \frac{x^2+1}{2x-3} = \left|\parbox{7em}{\centering делим ``столбиком''}\right| = \frac34 + \frac{x}{2} + \frac{13}{4} \cdot \frac{1}{2x-3} = \frac34 + \frac{x}{2} - \frac{13}{12} \cdot \frac{1}{1-\frac{2x}{3}} =  \frac34 + \frac{x}{2} - \frac{13}{12} \cdot \underbrace{\sum_{k=0}^{n} \Big(\frac{2x}{3}\Big)^k}_{1+\frac{2x}{3}+\sum_{k=2}^{n} (\frac23)^k x^k} + \lito(x^n) = -\frac13 - \frac{2x}{9} - \sum_{k=2}^n \frac{13}{12} \Big(\frac{2}{3}\Big)^k x^k + \lito(x^n)$.
+
+4) Разложить по формуле Маклорена до $\lito(x^n)$ функцию $f(x) = (x-1)e^{x/3}$.
+
+$\ds f(x) = (x-1) e^{x/3} = (x-1) \left(\sum_{k=0}^{n} \frac{1}{k!} \Big(\frac{x}{3}\Big)^k + \lito(x^n)\right) = \underbrace{\sum_{k=0}^{n} \frac{1}{k!} \frac{x^{k+1}}{3^k}}_{\parbox{8em}{\small\centering сдвигаем индекс суммирования на 1}} - \sum_{k=0}^{n} \frac{1}{k!} \frac{x^{k}}{3^k} + \underbrace{(x-1)\lito(x^n)}_{\lito(x^n)} = \underbrace{\sum_{k=1}^{n+1} \frac{1}{(k-1)!} \frac{x^{k}}{3^{k-1}}}_{\sum_{k=1}^{n} \frac{1}{(k-1)!} \frac{x^{k}}{3^{k-1}} + \lito(x^n)} - \underbrace{\sum_{k=0}^{n} \frac{1}{k!} \frac{x^{k}}{3^k}}_{1+\sum_{k=1}^{n} \frac{1}{k!} \frac{x^{k}}{3^k}} + \lito(x^n) = 1 + \sum_{k=1}^{n}\bigg[\frac{1}{3^{k-1}(k-1)!} -\frac{1}{3^k k!} \bigg] x^{k} + \lito(x^n) = 1 + \sum_{k=1}^{n} \frac{3k-1}{3^k k!} x^{k} + \lito(x^n)$.
+
+\newpage
+
+\Note Если две суммы начинаются с разных значений индекса, то их общие части объединяются с вынесением первых слагаемых за знак суммы:
+$$\sum_{k=0}^n a_k x^k + \sum_{k=2}^n b_k x^k = a_0 + a_1 x + \sum_{k=2}^n (a_k+b_k) x^k$$
+
+\Note Если две суммы заканчиваются разными значениями индекса, то их общие части объединяются с вынесением последних слагаемых в виде ``$\lito$'':
+$$\sum_{k=0}^n a_k x^k + \sum_{k=0}^{n+1} b_k x^k = \sum_{k=0}^n (a_k+b_k) x^k + \lito(x^n)$$
+
+\Note $x^{k+1}$ под знаком суммы можно превратить в $x^{k}$ сдвигом индекса суммирования:
+$$\sum_{k=0}^n a_k x^{k+1} = \sum_{k=1}^{n+1} a_{k-1} x^k = \sum_{k=1}^n a_{k-1} x^k + \lito(x^n)$$
+
+\textbf{Задачи из семесторвых и экзаменационных контрольных работ.}
+
+1) (МФТИ-51) Разложить по формуле Тейлора до $\lito((x-1)^{2n+1})$ функцию $\ds f(x) = \frac{2x^2-4x}{(x^2-2x+3)^{3/2}}$.
+
+$\ds f(x) = \left|\parbox{5em}{\centering замена $t=x-1$}\right| = 2\frac{t^2-1}{(t^2+2)^{3/2}} = \frac{1}{\sqrt2} (t^2-1) \bigg(1+\frac{t^2}{2}\bigg)^{-3/2} = \frac{1}{\sqrt2} (t^2-1) \bigg[\sum_{k=0}^{n} C_{-3/2}^k \frac{t^{2k}}{2^k} + \lito(t^{2n+1})\bigg] = \frac{1}{\sqrt2} \bigg[\underbrace{\sum_{k=0}^{n} C_{-3/2}^k \frac{t^{2(k+1)}}{2^k}}_\text{сдвиг индекса} - \underbrace{\sum_{k=0}^{n} C_{-3/2}^k \frac{t^{2k}}{2^k}}_\text{отделение 1-го члена} + \lito(t^{2n+1})\bigg] = \frac{1}{\sqrt2} \bigg[\sum_{k=1}^{n+1} C_{-3/2}^{k-1} \frac{t^{2k}}{2^{k-1}} - 1 - \sum_{k=1}^{n} C_{-3/2}^k \frac{t^{2k}}{2^k} + \lito(t^{2n+1})\bigg] = -\frac{1}{\sqrt2} + \sum_{k=1}^{n} \frac{2C_{-3/2}^{k-1}-C_{-3/2}^k}{2^{k+1/2}} t^{2k} + \lito(t^{2n+1}) = \left|\parbox{4em}{\centering $t=x-1$}\right| = -\frac{1}{\sqrt2} + \sum_{k=1}^{n} \frac{2C_{-3/2}^{k-1}-C_{-3/2}^k}{2^{k+1/2}} (x-1)^{2k} + \lito((x-1)^{2n+1})$ при $x \to 1$.
+
+2) (экз. МФТИ-31) Разложить по формуле Тейлора до $\lito((x-1)^{2n})$ функцию $\ds f(x) = (2x-x^2) \exp(2x^2-4x+3)$.
+
+$\ds f(x) = \left|\parbox{5em}{\centering замена $t=x-1$}\right| = (1-t^2) \exp(2t^2+1) = e (1-t^2) \Big[\sum_{k=0}^{n} \frac{2^k t^{2k}}{k!} + \lito(t^{2n})\Big] = e \sum_{k=0}^{n} \frac{2^k t^{2k}}{k!} - e \sum_{k=0}^{n} \frac{2^k t^{2(k+1)}}{k!} + \lito(t^{2n}) = e + \sum_{k=1}^{n} \frac{2^k t^{2k}}{k!}- e \sum_{k=1}^{n+1} \frac{2^{k-1} t^{2k}}{(k-1)!} + \lito(t^{2n}) = e + \sum_{k=1}^{n} \frac{e \cdot 2^{k-1}}{k!} (2-k) t^{2k} + \lito(t^{2n}) = \left|\parbox{4em}{\centering $t=x-1$}\right| = \\ = e + \sum_{k=1}^{n} \frac{e \cdot 2^{k-1}}{k!} (2-k) (x-1)^{2k} + \lito((x-1)^{2n})$ при $x \to 1$.
+
+3) (МФТИ-91) Разложить по формуле Тейлора до $\lito((x-2)^n)$ функцию $\ds f(x) = x \ln(x^2+x)$.
+
+$\ds f(x) = \left|\parbox{5em}{\centering замена $t=x-2$}\right| = (t+2)\ln\big((t+2)(t+3)\big) = (t+2) \bigg[\ln 2 + \ln\Big(1+\frac{t}{2}\Big) + \ln 3 + \ln\Big(1+\frac{t}{3}\Big)\bigg] = (t+2) \bigg[\ln 6 + \sum_{k=1}^{n} \frac{(-1)^{k-1} t^k}{k \cdot 2^k} + \lito(t^n) + \sum_{k=1}^{n} \frac{(-1)^{k-1} t^k}{k \cdot 3^k}\bigg] = (t+2) \bigg[\ln 6 + \sum_{k=1}^{n} \frac{(-1)^{k-1}}{k}\Big(\frac{1}{2^k}+\frac{1}{3^k}\Big) t^k + \lito(t^n)\bigg] = 2 \ln 6 + t \ln 6 + \underbrace{\sum_{k=1}^{n} \frac{(-1)^{k-1}}{k}\Big(\frac{1}{2^k}+\frac{1}{3^k}\Big) t^{k+1}}_\text{сдвиг индекса} + 2 \underbrace{\sum_{k=1}^{n} \frac{(-1)^{k-1}}{k}\Big(\frac{1}{2^k}+\frac{1}{3^k}\Big) t^k}_\text{отделение 1-го члена} + \lito(t^n) = 2 \ln 6 + t \ln 6 + \sum_{k=2}^{n+1} \frac{(-1)^{k}}{k-1}\Big(\frac{1}{2^{k-1}}+\frac{1}{3^{k-1}}\Big) t^k + \frac53 + 2 \sum_{k=2}^{n} \frac{(-1)^{k-1}}{k}\Big(\frac{1}{2^k}+\frac{1}{3^k}\Big) t^k + \lito(t^n) = 2 \ln 6 + \Big(\ln 6 + \frac53\Big)t + \sum_{k=2}^{n} (-1)^k\bigg[\frac{1}{k-1}\Big(\frac{1}{2^{k-1}}+\frac{1}{3^{k-1}}\Big) - \frac{2}{k}\Big(\frac{1}{2^k}+\frac{1}{3^k}\Big)\bigg] t^k + \lito(t^n) = \left|\parbox{4em}{\centering $t=x-2$}\right| = 2 \ln 6 + \Big(\ln 6 + \frac53\Big)(x-2) + \sum_{k=2}^{n} (-1)^k\bigg[\frac{1}{k-1}\Big(\frac{1}{2^{k-1}}+\frac{1}{3^{k-1}}\Big) - \frac{2}{k}\Big(\frac{1}{2^k}+\frac{1}{3^k}\Big)\bigg] (x-2)^k + \lito((x-2)^n)$ при $x \to 2$.
+
+\end{document}
